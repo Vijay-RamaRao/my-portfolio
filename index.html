@@ -32,7 +32,9 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -62,14 +64,82 @@
         </div>
     </section>
 
+    <section id="experience" class="py-5">
+        <div class="container">
+            <div class="experience-header" data-aos="fade-up">
+                <h2 class="display-5 fw-bold">Work Experience</h2>
+                <p class="lead">Building expertise through hands-on professional experience</p>
+            </div>
+            <div class="glass-card p-4 p-md-5" data-aos="fade-up">
+                <div class="job-title">AI Prompt Engineer & Task Reviewer</div>
+                <div class="company-info">Outlier AI | Remote | January 2025 – Present</div>
+                
+                <div class="experience-content">
+                    <p>Contract-based contributor for large-scale language model alignment projects, working directly on improving AI systems through expert evaluation and feedback.</p>
+                    
+                    <div class="achievement-images">
+                        <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+                            <img src="https://i.postimg.cc/d0btSqgw/image-2025-07-11-170420934.png" alt="Outlier Earnings" class="achievement-img" data-title="Earnings Achievement">
+                            <h6>Earnings Achievement</h6>
+                        </div>
+                        <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                            <img src="https://i.postimg.cc/G2Xgm2r1/image-2025-07-11-170640506.png" alt="Quality Ratings" class="achievement-img" data-title="Quality Rating">
+                            <h6>Quality Rating</h6>
+                        </div>
+                        <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+                            <img src="https://i.postimg.cc/ZKdH1j9m/image-2025-07-11-170805985.png" alt="Project Count" class="achievement-img" data-title="Projects & Roles">
+                            <h6>Projects & Roles</h6>
+                        </div>
+                    </div>
+
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>Evaluated and compared model-generated vs. human-written responses based on criteria like truthfulness, conciseness, localization, and instruction adherence</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>Wrote, audited, and rated 500+ tasks in Python, Java, JavaScript, C# and C++, including specialized domains like Test Reasoning and Code Refactoring</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>Part of the <strong>Oracle Group</strong>, Outlier's elite group of high-quality contributors with average Quality Audit (QC) rating of 4.75 out of 5</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>Worked as a <strong>Senior Reviewer</strong> and <strong>Squad Reviewer</strong> leading a squad of 15-20 contributors with average squad rating of 4.2 out of 5</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>Delivered consistent quality feedback on model hallucinations, localization errors, and alignment gaps, contributing directly to RLHF fine-tuning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="projects" class="py-5">
         <div class="container">
             <div class="text-center" data-aos="fade-up">
                 <h2 class="display-5 fw-bold">My Projects</h2>
                 <p class="lead mb-5">A selection of my work. More on my GitHub!</p>
             </div>
-            <div id="project-list" class="project-list">
+            <div id="project-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-5">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="display-5 fw-bold">Certifications</h2>
+                <p class="lead mb-5">Professional credentials that validate my expertise</p>
+            </div>
+            <div class="certification-grid">
+                <div class="certification-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cert-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h4 class="cert-title">AWS Certified Cloud Practitioner</h4>
+                    <div class="cert-issuer">Amazon Web Services</div>
+                    <div class="cert-date">July 20, 2024</div>
+                    <p class="mt-3">Foundational knowledge in cloud computing concepts, including cloud architecture, security, and deployment models with focus on AWS platform.</p>
                 </div>
+                <div class="certification-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cert-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h4 class="cert-title">Programming Essentials In Python</h4>
+                    <div class="cert-issuer">Cisco</div>
+                    <div class="cert-date">April 14, 2024</div>
+                    <p class="mt-3">Comprehensive understanding of fundamental Python syntax, control flow, loops, functions, and data structures for scalable application development.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -86,6 +156,14 @@
             <p class="mt-5 copyright">&copy; <span id="year"></span> Vijay Rama Rao. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <div id="imageModal" class="image-modal">
+        <div class="image-modal-content">
+            <span class="image-modal-close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div id="modalTitle" class="modal-title"></div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-
+document.addEventListener('DOMContentLoaded', function () {
     AOS.init({
         duration: 800,
         once: true,
@@ -34,9 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     const projectListContainer = document.getElementById('project-list');
-    projects.forEach((project, index) => {
+    projects.forEach((project) => {
         const techList = project.techStack.map(tech => `<li>${tech}</li>`).join('');
-
         const projectHtml = `
             <div class="project-entry" data-aos="fade-up">
                 <a href="${project.liveUrl}" target="_blank" class="project-image">
@@ -60,19 +58,60 @@ document.addEventListener('DOMContentLoaded', function() {
         projectListContainer.innerHTML += projectHtml;
     });
 
-    // --- Theme Switcher ---
     const themeSwitch = document.getElementById('checkbox');
     const docElement = document.documentElement;
     const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
     docElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'dark') { themeSwitch.checked = true; }
+    if (currentTheme === 'dark') {
+        themeSwitch.checked = true;
+    }
 
     themeSwitch.addEventListener('change', (e) => {
         const targetTheme = e.target.checked ? 'dark' : 'light';
         docElement.setAttribute('data-theme', targetTheme);
         localStorage.setItem('theme', targetTheme);
-    }, false);
+    });
+
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeBtn = document.querySelector('.image-modal-close');
+    const achievementImages = document.querySelectorAll('.achievement-img');
+
+    achievementImages.forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.style.display = 'block';
+            modalImage.src = this.src;
+            modalImage.alt = this.alt;
+            modalTitle.textContent = this.getAttribute('data-title') || this.alt;
+            
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
+        }
+    });
+
+    function closeModal() {
+        modal.style.display = 'none';
+        modalImage.src = '';
+        modalTitle.textContent = '';
+        
+        document.body.style.overflow = 'auto';
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
 });
